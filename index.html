@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="common/reset.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="scripts/script.js">
+    <title>TAIWAN</title>
+    <!-- SWIPER LINK -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    <!-- /SWIPER LINK -->
+
+    <!-- CSS -->
+    <style>
+      .swiper {
+        width: 1200px;
+        margin: 0 6vw 0;
+        max-width: 1366px;
+        height: 500px;
+        overflow: hidden;
+      }
+      @media screen and (min-width: 768px) and (max-width: 1116px){
+      .swiper { 
+        width: 90vw;
+        margin: 0 4vw 0;
+        max-width: 1366px;
+        height: 500px;
+        overflow: hidden;
+        }
+      .swiper-backface-hidden .swiper-slide {
+        padding-left: 3vh;
+        }
+       .swiper-pagination{
+        padding-left: 10vw;
+       }
+      }
+      @media screen and (min-height: 800px) and (max-width: 768px){ 
+      .swiper2 {
+        width: 80vw;
+        max-width: 100vw;
+        height: 62.5vh;
+        margin-top: 12.5vw;
+        margin-left: -19.5vw;
+        margin-right: 10vw; /* 矢印調整右側、左側はCSSの.gallery_sp欄 */
+        overflow: hidden;
+        }
+        .swiper_wrapper{
+          width: 80vw;
+          height: 62.5vh;
+        }
+      }
+      @media screen and (max-height: 800px) and (max-width: 768px) {
+      .swiper2 {
+        width: 80vw;
+        max-width: 100vw;
+        height: 62.5vh;
+        margin-top: 12.5vw;
+        margin-left: -19.5vw;
+        margin-right: 10vw;
+        overflow: hidden;
+        }
+        .swiper_wrapper{
+          width: 80vw;
+          height: 62.5vh;
+        }
+      }
+    /* ロード画面のスタイル */
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #007AB7; /* 背景色を設定 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 9999;
+    }
+    /* ロード画面アニメーションを定義 */
+    @keyframes blink {
+        0%, 100% { opacity: 1; } /* 点灯時のスタイル */
+        50% { opacity: 0; }       /* 消灯時のスタイル */
+    }
+    /* 画像を含む要素にアニメーションを適用 */
+     .image-container {
+        animation: blink 1s infinite; /* 1秒間隔で無限に繰り返す */
+    }
+    </style>
+    <!-- /CSS -->
+  </head>
+
+  <!-- ロード画面のコンテンツ -->
+  <div id="loading-screen">
+    <div class="image-container">
+    <img src="images/PC_logo.png" class="lodingLogo" alt="PCロゴ" width="318px" height="128px">
+    </div>
+  </div>
+
+  <body>
+    <a href="#" class="pageTop"><img id="backtop" src="images/backTOP.png"></a>
+    <a href="#" class="pageTop_sp"><img id="backtop" src="images/backTOP.png"></a>
+    <header>
+      <div class="innerWrap" id="innerWrap1">
+        <div class="container">
+          <h1>
+            <a href="#">
+              <img id="logo" src="images/PC_logo.png" width="133px" height="54px">
+            </a>
+          </h1>
+          <nav>
+            <ul class="headermenu">
+              <li><a href="index.html">Top</a></li>
+              <li><a href="taipei/index.html">台北</a></li>
+              <li><a href="tainan/index.html">台南</a></li>
+              <li><a href="taichu/index.html">台中</a></li>
+              <li><a href="#">当サイトのポリシー</a></li>
+              <li><a href="#">お問い合わせ</a></li>
+            </ul>
+          </nav>
+          <div class="hamburger">
+            <input class="menu-btn" type="checkbox" id="menu-btn">
+              <label class="menu-icon" for="menu-btn">
+                <span class="navicon"></span>
+              </label>
+            <nav class="gMenu">
+              <ul class="menu">
+                <li><img id="hamburger_Logo" src="images/PC_logo.png" width="101px" height="40px"></li>
+                <li><p id="hamburger_Menu">Menu</p></li>
+                <li><a id="top" href="index.html"><span class="whiteline">Top</span></a></li>
+                <li><a id="taipei" href="taipei/index.html"><span class="whiteline">台北</span></a></li>
+                <li><a id="tainan" href="tainan/index.html"><span class="whiteline">台南</span></a></li>
+                <li><a id="taichu" href="taichu/index.html"><span class="whiteline">台中</span></a></li>
+                <li><a id="policy" href="#"><span class="whiteline">当サイトのポリシー</span></a></li>
+                <li><a id="contact" href="#"><span class="whiteline">お問い合わせ</span></a></li>
+              </ul>
+            </nav>
+          </div>
+          <ul class="snslinks">
+            <li><a href="#"><img id="fb" src="images/facebook.png"></a></li>
+            <li><a href="#"><img id="in" src="images/instagram.png"></a></li>
+            <li><a href="#"><img id="tw" src="images/twitter.png"></a></li>
+          </ul>
+          <ul class="snslinks_sp">
+            <li><a href="#"><img id="fb" src="images/facebook.png"></a></li>
+            <li><a href="#"><img id="in" src="images/instagram.png"></a></li>
+            <li><a href="#"><img id="tw" src="images/twitter.png"></a></li>
+          </ul>
+          <span class="img">
+            <img id="hero" src="images/PC_hero.png" width="1366px" height="768px">
+            <img id="logo1" src="images/PC_logo.png" width="780px" height="314px">
+          </span>
+          <span class="img2">
+            <img id="hero_sp" src="images/SP_topview.png">
+            <img id="logo1_sp" src="images/SP_mainlogo.png">
+          </span>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="intro1" id="intro_upper">
+        <div class="innerWrap" id="innerWrap2">
+          <img id="taiwan_intro1_bs" src="images/SP_intro_bs_1.png" width="1366px" height="458px">
+          <p id="formosa">
+          Formosa<br>
+          フォルモサ（麗しの島）
+          </p>
+          <img id="taiwan_intro1" src="images/PC_intro_1.png" width="636px" height="298px">
+          <img id="taiwan_nf" src="images/PC_Taiwan_flag.png">
+        </div>
+        <div class="innerWrap_sp" id="innerWrap2_sp">
+          <img id="taiwan_intro1_bs_sp" src="images/SP_intro_bs_1.png" width="375px" height="407px">
+          <p id="formosa_sp">
+          Formosa<br>
+          <span id="subtitle_intro1_sp">フォルモサ（麗しの島）</span>
+          </p>
+          <img id="taiwan_intro1_sp" src="images/SP_intro_1.png" width="335px" height="139px">
+          <img id="taiwan_nf_sp" src="images/SP_Taiwan_flag.png">
+        </div>
+      </section>
+      <section class="intro2" id="intro_lower">
+        <div class="innerWrap" id="innerWrap3">
+          <img id="taiwan_intro2_bs" src="images/PC_intro_bs_2.png" width="1366px" height="458px">
+          <img id="taiwan_intro2" src="images/PC_intro_2.png" width="636px" height="298px">
+          <p id="introduction">
+            フォルモサは、十六世紀にポルトガル人がエメラルド色の美しい台湾を見つけて発した賛嘆の言葉です。
+            緑にあふれた台湾の美しい風景が、あなたを桃源郷の世界へといざなってくれるでしょう。
+          </p>
+          </p>
+        </div>
+      </section>
+      <section class="intro2_sp" id="intro_lower_sp">
+        <div class="innerWrap_sp" id="innerWrap3_sp">
+          <img id="taiwan_intro2_bs_sp" src="images/SP_intro_bs_2.png" width="375px" height="407px">
+          <img id="taiwan_intro2_sp" src="images/SP_intro_2.png" width="335px" height="139px">
+          <p id="introduction_sp">
+            フォルモサは、十六世紀にポルトガル人がエメラルド色の美しい台湾を見つけて発した賛嘆の言葉です。
+            緑にあふれた台湾の美しい風景が、あなたを桃源郷の世界へといざなってくれるでしょう。
+          </p>
+        </div>
+      </section>
+      <div class="innerWrap" id="innerWrap4">
+        <h2 class="gallery">Gallery
+          <span class="subtitle">ギャラリー</span>
+        </h2>
+        <img id="headline1" src="images/PC_headline_bs.png" width="530px" height="96px">
+        <section class="gallery">
+          <!-- Slider main container -->
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <img src="images/slider4.png" srcset="images/slider4.png" alt="#">
+          </div>
+          <div class="swiper-slide">
+            <img src="images/slider2.png" srcset="images/slider2.png" alt="#">
+          </div>
+          <div class="swiper-slide">
+            <img src="images/slider3.png" srcset="images/slider3.png" alt="#">
+          </div>
+          <div class="swiper-slide">
+            <img src="images/slider1.png" srcset="images/slider1.png" alt="#">
+          </div>
+          <div class="swiper-slide">
+            <img src="images/slider5.png" srcset="images/slider5.png" alt="#">
+          </div>
+          <div class="swiper-slide">
+            <img src="images/slider4.png" srcset="images/slider4.png" alt="#">
+          </div>
+          <div class="swiper-slide">
+            <img src="images/slider2.png" srcset="images/slider2.png" alt="#">
+          </div>
+          <div class="swiper-slide">
+            <img src="images/slider3.png" srcset="images/slider3.png" alt="#">
+          </div>
+          <div class="swiper-slide">
+            <img src="images/slider1.png" srcset="images/slider1.png" alt="#">
+          </div>
+          <div class="swiper-slide">
+            <img src="images/slider5.png" srcset="images/slider5.png" alt="#">
+          </div>
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+      
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"><img id="lefticon" src="images/PC_icon_left.png" width="40px" height="40px"></div>
+          <div class="swiper-button-next"><img id="righticon" src="images/PC_icon_right.png" width="40px" height="40px"></div>
+      
+          <!-- If we need scrollbar -->
+          <div class="swiper-scrollbar"></div>
+        </div>
+        <!--/HTML記述 -->
+
+        <!--------------------スライダー見た目-------------------------------------------------->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
+        <!-------------------------------------------------------------------------------------> 
+
+        <!--------------------jQuery-----------------------------------------------------------> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <!------------------------------------------------------------------------------------->  
+
+        <!--------------------スライダー動かすやつ----------------------------------------------->  
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+        <!-------------------------------------------------------------------------------------> 
+
+        <!--  API -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+        <!--  /API -->
+
+        <!-- JS -->
+        <script>
+          //戻るボタン//
+          document.addEventListener("DOMContentLoaded", function() {
+            var backtop = document.getElementById("backtop");
+
+            window.addEventListener("scroll", function() {
+              if (window.scrollY > 3000) {  // トップから3000px以上スクロール
+                backtop.style.display = "block";
+              } else {
+                backtop.style.display = "none";
+              }
+            });
+
+            backtop.addEventListener("click", function(event) {
+              event.preventDefault(); // リンクのデフォルト動作を無効化
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+              });
+            });
+          });
+
+          const swiper = new Swiper('.swiper',{
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+            speed: 1000,
+            autoplay: true,       //自動再生
+            autoplaySpeed: 1200,  //自動再生のスピード
+            dots: true,           //スライド下のドット
+            arrows: true,         //左右の矢印
+            infinite: true,       //永久にループさせる
+
+            breakpoints: {
+              768: {
+                  slidesPerView: 3,
+              },
+            },
+
+            // If we need pagination
+            pagination: {
+              el: '.swiper-pagination',
+              dots: true, //スライド下のドット
+            },
+
+            // Navigation arrows
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+              dots: true, //スライド下のドット
+            },
+
+            // And if we need scrollbar
+            scrollbar: {
+              el: '.swiper-scrollbar',
+              dots: true,           //スライド下のドット
+            },
+          });
+        </script>
+        <!-- /JS -->
+        </section>
+      </div>
+      <div class="innerWrap_sp" id="innerWrap4_sp">
+        <h2 class="gallery_sp">Gallery
+          <span class="subtitle_sp_1">ギャラリー</span>
+        </h2>
+        <img id="headline1_sp" src="images/PC_headline_bs.png" width="220px" height="40px">
+        <section class="gallery_sp">
+          <!-- Slider main container -->
+          <div class="swiper2">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">
+                <img src="images/slider4.png" srcset="images/slider4.png" alt="#">
+              </div>
+              <div class="swiper-slide">
+                <img src="images/slider2.png" srcset="images/slider2.png" alt="#">
+              </div>
+              <div class="swiper-slide">
+                <img src="images/slider3.png" srcset="images/slider3.png" alt="#">
+              </div>
+              <div class="swiper-slide">
+                <img src="images/slider1.png" srcset="images/slider1.png" alt="#">
+              </div>
+              <div class="swiper-slide">
+                <img src="images/slider5.png" srcset="images/slider5.png" alt="#">
+              </div>
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+        
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
+          </div>
+          <!--/HTML記述 -->
+        
+          <!--  API -->
+          <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+          <!--  /API -->
+        
+          <!-- JS -->
+          <script>
+            const swiper2 = new Swiper('.swiper2', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+            speed: 1000,
+            autoplay: true,       //自動再生
+            autoplaySpeed: 1000,  //自動再生のスピード
+            dots: true,           //スライド下のドット
+            arrows: true,         //左右の矢印
+            infinite: true,       //永久にループさせる
+            
+            breakpoints: {
+              768: {
+                  slidesPerView: 1,
+              },
+            },
+            
+            // If we need pagination
+            pagination: {
+              el: '.swiper-pagination',
+            },
+            
+            // Navigation arrows
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            },
+            
+            // And if we need scrollbar
+            scrollbar: {
+              el: '.swiper-scrollbar',
+            },
+            });
+          </script>
+          <!-- /JS -->
+        </section>
+      </div>
+      <div class="innerWrap" id="innerWrap5">
+        <h2 class="travels">Travel
+          <span class="subtitle">おすすめスポット</span>
+        </h2>
+        <img id="headline2" src="images/PC_headline_bs.png" width="530px" height="96px">
+        <section class="travel">
+          <p id="travels_introduction">
+            訪れた人々を魅了する「美麗島」台湾。そんな台湾の人気スポットを代表する地を３つのエリアでご紹介。
+            様々な風景に誰もが魅了されます。
+          </p>
+          <img id="taiwan_travel" src="images/PC_map.png"  width="225px" height="508px">
+          <a href="taipei/index.html"><img id="tt_taipei" src="images/PC_taipei.png" width="99px" height="209px"></a>
+          <a href="taichu/index.html"><img id="tt_taichu" src="images/PC_taichu.png" width="99px" height="209px"></a>
+          <a href="tainan/index.html"><img id="tt_tainan" src="images/PC_tainan.png" width="99px" height="209px"></a>
+        </section>
+      </div>
+      <div class="innerWrap_sp" id="innerWrap5_sp">
+        <h2 class="travels_sp">Travel
+          <span class="subtitle_sp_2">おすすめスポット</span>
+        </h2>
+        <img id="headline2_sp" src="images/PC_headline_bs.png" width="220px" height="40px">
+        <section class="travel_sp">
+          <p id="travels_introduction_sp">
+            訪れた人々を魅了する「美麗島」台湾。そんな台湾の人気スポットを代表する地を３つのエリアでご紹介。
+            様々な風景に誰もが魅了されます。
+          </p>
+          <img id="taiwan_travel_sp" src="images/PC_map.png"  width="225px" height="508px">
+          <a href="taipei/index.html"><img id="tt_taipei_sp" src="images/PC_taipei.png" width="99px" height="209px"></a>
+          <a href="taichu/index.html"><img id="tt_taichu_sp" src="images/PC_taichu.png" width="99px" height="209px"></a>
+          <a href="tainan/index.html"><img id="tt_tainan_sp" src="images/PC_tainan.png" width="99px" height="209px"></a>
+        </section>
+      </div>
+      <!-- 新規追加版 -->
+      <div class="innerWrap_1115" id="innerWrap5_1115">
+        <h2 class="travels_1115">Travel
+          <span class="subtitle_1115">おすすめスポット</span>
+        </h2>
+        <img id="headline2_1115" src="images/PC_headline_bs.png" width="530px" height="96px">
+        <section class="travel_1115">
+          <p id="travels_introduction_1115">
+            訪れた人々を魅了する「美麗島」台湾。そんな台湾の人気スポットを代表する地を３つのエリアでご紹介。
+            様々な風景に誰もが魅了されます。
+          </p>
+          <img id="taiwan_travel_1115" src="images/PC_map.png"  width="225px" height="508px">
+          <a href="taipei/index.html"><img id="tt_taipei_1115" src="images/PC_taipei.png" width="99px" height="209px"></a>
+          <a href="taichu/index.html"><img id="tt_taichu_1115" src="images/PC_taichu.png" width="99px" height="209px"></a>
+          <a href="tainan/index.html"><img id="tt_tainan_1115" src="images/PC_tainan.png" width="99px" height="209px"></a>
+        </section>
+      </div>
+      <!-- 新規追加版ここまで -->
+      <div class="innerWrap" id="innerWrap6">
+        <h2 class="event">Event
+          <span class="subtitle">おすすめイベント</span>
+        </h2>
+        <img id="headline3" src="images/PC_headline_bs.png" width="530px" height="96px">
+        <section class="event1" id="event_upper">
+          <h3>台湾ランタンフェスティバル</h3>
+          <img id="event_lantern" src="images/PC_lantern.png" width="580px" height="396px">
+          <h4>開催期間</h4>
+          <p id="period1">
+            春節　旧暦元日（2024年2月24日～3月2日予定）
+          </p>
+          <p id="lantern_intro">
+            春節の風習として「天燈」と呼ばれる紙製のランタンに無病息災などの祈りを書き込み、
+            火種を用いて熱気球と同じ原理で空に飛ばす儀式。吉祥や邪気払いの意味があります。
+          </p>
+        </section>
+      </div>
+      <div class="innerWrap_sp" id="innerWrap6_sp">
+        <h2 class="event_sp">Event
+          <span class="subtitle_sp_3">おすすめイベント</span>
+        </h2>
+        <img id="headline3_sp" src="images/PC_headline_bs.png" width="220px" height="40px">
+        <section class="event1_sp" id="event_upper_sp">
+          <h3>台湾ランタンフェスティバル</h3>
+          <img id="event_lantern_sp" src="images/PC_lantern.png" width="335px" height="194px">
+          <h4>開催期間</h4>
+          <p id="period1_sp">
+            春節　旧暦元日（2024年2月24日～3月2日予定）
+          </p>
+          <p id="lantern_intro_sp">
+            春節の風習として「天燈」と呼ばれる紙製のランタンに無病息災などの祈りを書き込み、
+            火種を用いて熱気球と同じ原理で空に飛ばす儀式。吉祥や邪気払いの意味があります。
+          </p>
+        </section>
+      </div>
+      <!-- 新規追加版 -->
+      <div class="innerWrap_1115" id="innerWrap6_1115">
+        <h2 class="event_1115">Event
+          <span class="subtitle_1115_b">おすすめイベント</span>
+        </h2>
+        <img id="headline3_1115" src="images/PC_headline_bs.png" width="530px" height="96px">
+        <section class="event1_1115" id="event_upper_1115">
+          <h3>台湾ランタンフェスティバル</h3>
+          <img id="event_lantern_1115" src="images/PC_lantern.png" width="335px" height="194px">
+          <h4>開催期間</h4>
+          <p id="period1_1115">
+            春節　旧暦元日（2024年2月24日～3月2日予定）
+          </p>
+          <p id="lantern_intro_1115">
+            春節の風習として「天燈」と呼ばれる紙製のランタンに無病息災などの祈りを書き込み、
+            火種を用いて熱気球と同じ原理で空に飛ばす儀式。吉祥や邪気払いの意味があります。
+          </p>
+        </section>
+      </div>
+      <!-- 新規追加版ここまで -->
+      <div class="innerWrap" id="innerWrap7">
+        <section class="event2" id="event_lower">
+          <h3>
+            台北最High新年城<br>
+            <p>カウントダウンパーティー</p>
+          </h3>
+          <img id="event_countdown" src="images/PC_countdown.png" width="580px" height="396px">
+          <h4>開催期間</h4>
+          <p id="period2">
+            12月31日～1月1日
+          </p>
+          <p id="countdown_intro">
+            台北101では毎年、新年を祝う花火を実施。元旦0時から約3分間、台北101を覆い尽くすように、
+            ビル全体から美しい火花が舞い散ります。世界中から注目されるイベントの一つです。
+          </p>
+        </section>
+      </div>
+      <div class="innerWrap_sp" id="innerWrap7_sp">
+        <section class="event2_sp" id="event_lower_sp">
+          <h3>
+            台北最High新年城<br>
+            <p>カウントダウンパーティー</p>
+          </h3>
+          <img id="event_countdown_sp" src="images/PC_countdown.png" width="335px" height="194px">
+          <h4>開催期間</h4>
+          <p id="period2_sp">
+            12月31日～1月1日
+          </p>
+          <p id="countdown_intro_sp">
+            台北101では毎年、新年を祝う花火を実施。元旦0時から約3分間、台北101を覆い尽くすように、
+            ビル全体から美しい火花が舞い散ります。世界中から注目されるイベントの一つです。
+          </p>
+        </section>
+      </div>
+      <!-- 新規追加版 -->
+      <div class="innerWrap_1115" id="innerWrap7_1115">
+        <section class="event2_1115" id="event_lower_1115">
+          <h3>
+            台北最High新年城<br>
+            <p>カウントダウンパーティー</p>
+          </h3>
+          <img id="event_countdown_1115" src="images/PC_countdown.png" width="335px" height="194px">
+          <h4>開催期間</h4>
+          <p id="period2_1115">
+            12月31日～1月1日
+          </p>
+          <p id="countdown_intro_1115">
+            台北101では毎年、新年を祝う花火を実施。元旦0時から約3分間、台北101を覆い尽くすように、
+            ビル全体から美しい火花が舞い散ります。世界中から注目されるイベントの一つです。
+          </p>
+        </section>
+      </div>
+      <!-- 新規追加版ここまで -->
+      <div class="innerWrap" id="innerWrap8">
+        <section class="info" id="b_info">
+          <div id="taiwan_baseinfo">
+            <p id="infotext">台湾基本情報</p>
+          </div>
+          <div class="infos">
+            <div class="infos1">
+              <p>■正式名称：中華民国・台湾
+                　Republic of China,Taiwan </p><!-- 01 -->
+              <p>■首都：台北</p>
+              <p>■人口：約2,300万人</p>
+              <p>■面積：約3万6,000km²</p>
+              <p>■人種・民族：漢民族、先住民</p><!-- 05 -->
+              <p>■宗教：仏教、道教、キリスト教、その他</p>
+              <p>■言語：北京語、台湾語</p>
+              <p>■通貨：元（ニュー台湾ドル）</p>
+              <p>■時差：1時間 台湾が正午のとき、日本は午後1時</p><!-- 01から同じ行はここまで -->
+            </div>
+            <div class="infos2">
+              <p>■台湾の気候・服装</p><!-- 10 -->
+              <p id="longtext">■亜熱帯に属し一年を通して温暖な台湾。しかし北回帰線から南は熱帯で暑く、
+                  北部は大陸性気候の影響を受けて冷え込むこともあるなど、地域差を頭に入れて服装の準備を</p><!-- 11 -->
+              <p>■台湾の祝祭日</p>
+              <p>■正月：1月1日</p>
+              <p>■端午節※：6月22日 ■春節※：1月20日～29日</p>
+              <p>■中秋節※：9月29日 ■和平記念日：2月28日</p><!-- 15 -->
+              <p>■国慶節：10月10日 ■清明節：4月5日</p><!-- 16 -->
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="innerWrap_sp" id="innerWrap8_sp">
+        <section class="info_sp" id="b_info_sp">
+          <div id="taiwan_baseinfo_sp">
+            <p id="infotext_sp">台湾基本情報</p>
+          </div>
+          <div class="infos_sp">
+            <div class="infos1_sp">
+              <p>■正式名称：中華民国・台湾<br>
+                　Republic of China,Taiwan </p><!-- 01 -->
+              <p>■首都：台北</p>
+              <p>■人口：約2,300万人</p>
+              <p>■面積：約3万6,000km²</p>
+              <p>■人種・民族：漢民族、先住民</p><!-- 05 -->
+              <p>■宗教：仏教、道教、キリスト教、その他</p>
+              <p>■言語：北京語、台湾語</p>
+              <p>■通貨：元（ニュー台湾ドル）</p>
+              <p>■時差：1時間 台湾が正午のとき、日本は午後1時</p><!-- 01から同じ行はここまで -->
+            </div>
+            <div class="infos2_sp">
+              <p>■台湾の気候・服装</p><!-- 10 -->
+              <p id="longtext_sp">■亜熱帯に属し一年を通して温暖な台湾。しかし北回帰線から南は熱帯で暑く、
+                  北部は大陸性気候の影響を受けて冷え込むこともあるなど、地域差を頭に入れて服装の準備を</p><!-- 11 -->
+              <p>■台湾の祝祭日</p>
+              <p>■正月：1月1日</p>
+              <p>■端午節※：6月22日 ■春節※：1月20日～29日</p>
+              <p>■中秋節※：9月29日 ■和平記念日：2月28日</p><!-- 15 -->
+              <p>■国慶節：10月10日 ■清明節：4月5日</p><!-- 16 -->
+            </div>
+          </div>
+        </section>
+      </div>
+      </section>
+    </main>
+    <script>
+      // ページの読み込みが完了したらロード画面を非表示にし、5秒後にページを切り替える
+      window.addEventListener('load', function() {
+        let loadingScreen = document.getElementById('loading-screen');
+        setTimeout(function(){
+          loadingScreen.style.display = 'none';
+        }, 1000);　// 1000ミリ秒（1秒）
+      });
+    </script>
+  </body>
+  <div id="footer">
+    <footer>
+      <div class="taiwanImage-position">
+      <img id="taiwan_nf2" src="images/PC_Taiwan_flag.png" width="64px" height="48px">
+      </div>
+        <div class="footer_container">
+          <ul class="footermenu">
+            <li><a href="index.html">TOPへもどる</a></li>
+            <li><a href="taipei/index.html">台北</a></li>
+            <li><a href="tainan/index.html">台南</a></li>
+            <li><a href="taichu/index.html">台中</a></li>
+            <li><a href="#">当サイトのポリシー</a></li>
+            <li><a href="#">お問い合わせ</a></li>
+          </ul>
+          <dl id="logo2">
+            <dt><img src="images/PC_logo.png" width="256px" height="103px"></dt>
+          </dl>
+          <ul class="snslinks2">
+            <li><a href="#"><img id="fb2" src="images/facebook.png"></a></li>
+            <li><a href="#"><img id="in2" src="images/instagram.png"></a></li>
+            <li><a href="#"><img id="tw2" src="images/twitter.png"></a></li>
+          </ul>
+        </div>
+      <p>Copyright (C) 2023 TAIWAN.traveler.cc </p>
+    </footer>
+  </div>
+  <div id="footer_sp">
+    <footer>
+      <!-- <a href="#" class="page-top"><img src="images/backTOP.png" class="top-return"></a> -->
+        <div class="taiwanImage-position">
+          <img id="taiwan_nf2" src="images/PC_Taiwan_flag.png" width="64px" height="48px">
+        </div>
+          <div class="footer_container">
+            <div class="footermenu-position">
+            <ul class="footermenu">
+              <li><a href="index.html">TOPへもどる</a></li>
+              <li><a href="taipei/index.html">台北</a></li>
+              <li><a href="tainan/index.html">台南</a></li>
+              <li><a href="taichu/index.html">台中</a></li>
+              <li><a href="#">当サイトのポリシー</a></li>
+              <li><a href="#">お問い合わせ</a></li>
+            </ul>
+            </div>
+            <ul class="snslinks2_sp">
+              <li><a href="#"><img id="fb2_sp" src="images/facebook.png"></a></li>
+              <li><a href="#"><img id="in2_sp" src="images/instagram.png"></a></li>
+              <li><a href="#"><img id="tw2_sp" src="images/twitter.png"></a></li>
+            </ul>
+          </div>
+        <div id="logo2">
+          <dt><img id="footerLogo" src="images/PC_logo.png"></dt>
+        </div>
+      <p>Copyright (C) 2023 TAIWAN.traveler.cc </p>
+    </footer>
+  </div>
+</html>
